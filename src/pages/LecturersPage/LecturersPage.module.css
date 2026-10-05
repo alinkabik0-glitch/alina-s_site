@@ -1,0 +1,25 @@
+.lecturersPage {
+  padding: 20px 0;
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pageTitle {
+  font-size: 36px;
+  color: #2C3E50;
+  margin-bottom: 10px;
+}
+
+.pageSubtitle {
+  font-size: 18px;
+  color: #7F8C8D;
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 28px;
+  }
+}

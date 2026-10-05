@@ -1,0 +1,278 @@
+.lecturerPage {
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.backButton {
+  background: none;
+  border: 2px solid #4A90E2;
+  color: #4A90E2;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 30px;
+  transition: all 0.3s;
+}
+
+.backButton:hover {
+  background: #4A90E2;
+  color: white;
+}
+
+.lecturerHeader {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Уменьшили ширину фото */
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: start;
+}
+
+.lecturerPhoto {
+  width: 250px; /* Уменьшили */
+  height: 300px; /* Уменьшили */
+}
+
+.lecturerPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.lecturerName {
+  font-size: 36px;
+  color: #2C3E50;
+  margin-bottom: 15px;
+}
+
+.lecturerDegree {
+  color: #4A90E2;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.lecturerEducation {
+  color: #7F8C8D;
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.lecturerExperience {
+  color: #7F8C8D;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #2C3E50;
+}
+
+.disciplines {
+  margin-bottom: 60px;
+}
+
+.disciplineCard {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.disciplineTitle {
+  font-size: 24px;
+  color: #4A90E2;
+  margin-bottom: 10px;
+}
+
+.disciplineDescription {
+  color: #7F8C8D;
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.topicsList h4 {
+  font-size: 18px;
+  color: #2C3E50;
+  margin-bottom: 15px;
+}
+
+.topicsList ul {
+  list-style: none;
+  padding: 0;
+}
+
+.topicsList li {
+  padding: 10px 0;
+  border-bottom: 1px solid #E0E0E0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.topicsList li:last-child {
+  border-bottom: none;
+}
+
+.tariffs {
+  margin-bottom: 60px;
+}
+
+.tariffsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.tariffCard {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.tariffCard:hover {
+  transform: translateY(-5px);
+}
+
+.tariffName {
+  font-size: 18px;
+  color: #2C3E50;
+  margin-bottom: 15px;
+}
+
+.tariffPrice {
+  font-size: 24px;
+  color: #4A90E2;
+  font-weight: bold;
+}
+
+.ctaSection {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.ctaButton {
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+.notFound {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.notFound h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2C3E50;
+}
+
+.notFound button {
+  padding: 12px 30px;
+  background: #4A90E2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .lecturerHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .lecturerPhoto {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .lecturerName {
+    font-size: 28px;
+  }
+}
+
+/* Добавьте эти стили в конец файла */
+
+.lecturerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lecturerName {
+  font-size: 36px;
+  color: #2C3E50;
+  margin-bottom: 15px;
+}
+
+.lecturerDegree {
+  color: #4A90E2;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.lecturerEducation {
+  color: #7F8C8D;
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.lecturerExperience {
+  color: #7F8C8D;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.ctaButton {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+.ctaSection {
+  text-align: center;
+  margin-top: 40px;
+}

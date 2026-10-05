@@ -1,0 +1,79 @@
+.lecturersList {
+  margin-top: 30px;
+}
+
+.filters {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.searchBox {
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid #E0E0E0;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4A90E2;
+}
+
+.filterControls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.select {
+  padding: 12px 25px;
+  border: 2px solid #4A90E2;
+  background: white;
+  color: #4A90E2;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.select:hover {
+  background: #4A90E2;
+  color: white;
+}
+
+.lecturersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+}
+
+.noResults {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #7F8C8D;
+}
+
+@media (max-width: 768px) {
+  .lecturersGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filterControls {
+    flex-direction: column;
+  }
+  
+  .select {
+    width: 100%;
+  }
+}

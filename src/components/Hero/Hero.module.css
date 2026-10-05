@@ -1,0 +1,58 @@
+.hero {
+  background: white;
+  padding: 40px 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.heroImage img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.heroTitle {
+  font-size: 32px;
+  color: #2C3E50;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+.findButton {
+  padding: 15px 40px;
+  background: #4A90E2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.findButton:hover {
+  background: #357ABD;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    font-size: 24px;
+  }
+}

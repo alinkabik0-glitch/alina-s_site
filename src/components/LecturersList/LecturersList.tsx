@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useDeferredValue } from 'react';
 import styles from './LecturersList.module.css';
 import LecturerCard from '../LecturerCard/LecturerCard';
 import { lecturersData } from '../../data/lecturersData';
@@ -12,14 +12,25 @@ export default function LecturersList({ onNavigate }: LecturersListProps) {
   const [sortBy, setSortBy] = useState<'name' | 'experience' | 'degree'>('name');
   const [minExperience, setMinExperience] = useState<number>(0);
 
+  // useDeferredValue откладывает обновление этого значения,
+  // чтобы ввод в поле поиска не «лагал» при большом списке (100+ элементов).
+  // Пока React занят перерисовкой списка — input остаётся отзывчивым.
+  const deferredSearchTerm = useDeferredValue(searchTerm);
+
+  // isStale = true, когда введённый текст ещё не «догнал» отложенное значение.
+  // Это значит: список сейчас перерисовывается под старые данные.
+  const isStale = searchTerm !== deferredSearchTerm;
+
   const filteredLecturers = lecturersData
     .filter(lecturer => {
+      // Фильтрация идёт по ОТЛОЖЕННОМУ значению, а не по searchTerm.
+      // Так React может отрисовать список чуть позже, не блокируя ввод.
       const matchesSearch = lecturer.fullName
         .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+        .includes(deferredSearchTerm.toLowerCase());
       const experience = parseInt(lecturer.experience);
       const matchesExperience = experience >= minExperience;
-      
+
       return matchesSearch && matchesExperience;
     })
     .sort((a, b) => {
@@ -44,8 +55,12 @@ export default function LecturersList({ onNavigate }: LecturersListProps) {
             onChange={(e) => setSearchTerm(e.target.value)}
             className={styles.searchInput}
           />
+          {/* Индикатор устаревших результатов: показывается, пока список отстаёт от ввода */}
+          {isStale && (
+            <span className={styles.staleIndicator}>Обновление…</span>
+          )}
         </div>
-        
+
         <div className={styles.filterControls}>
           <select
             value={sortBy}
@@ -70,16 +85,22 @@ export default function LecturersList({ onNavigate }: LecturersListProps) {
         </div>
       </div>
 
-      <div className={styles.lecturersGrid}>
+      {/* Пока идёт обновление (isStale) — список становится полупрозрачным.
+          Это визуально показывает, что данные ещё не финальные.
+          Старый список не исчезает мгновенно — просто тускнеет. */}
+      <div
+        className={styles.lecturersGrid}
+        style={{ opacity: isStale ? 0.6 : 1, transition: 'opacity 0.2s' }}
+      >
         {filteredLecturers.map(lecturer => (
-          <LecturerCard 
+          <LecturerCard
             key={lecturer.id}
             lecturer={lecturer}
             onClick={() => onNavigate('lecturer', lecturer.id)}
           />
         ))}
       </div>
-      
+
       {filteredLecturers.length === 0 && (
         <div className={styles.noResults}>
           <p>Лекторы не найдены</p>
